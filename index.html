@@ -17,15 +17,20 @@ function getMobileOperatingSystem() {
 <script>
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
-    let prefix = window.location.pathname.split('/')[1]; // Obtener el primer segmento de la URL (el sufijo)
+    let prefix = window.location.pathname.split('/')[1];
+    
+    let redirectMap = {
+        "clasica": "https://popularenlinea.com/clasica?gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJddrDx0dGp0izAQygMPh45uK3n9cXV5FN9L-orgWoX3fSf8EdCKNEhoC4zkQAvD_BwE",
+        "extracredito": "https://popularenlinea.com/prestamos?gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJf-HG6YCflanRPyLxMP14oaA7jH2AnKVrLEiLdcIwc_LTgJfcM42MBoC7UsQAvD_BwE&gclsrc=aw.ds",
+    };
+
     if (os == "Android") {
         window.location.href = "https://play.google.com/store/apps/details?id=com.popular.app.android"; 
     } else if (os == "iOS") {
         window.location.href = "https://apps.apple.com/do/app/banco-popular-dominicano/id583475424?l=en-GB";
     } else {
-        // Redirigir a una URL diferente dependiendo del sufijo
-        if (prefix === "prueba1") {
-            window.location.href = "https://ejemplo.com/pagina1";
+        if (redirectMap.hasOwnProperty(prefix)) {
+            window.location.href = redirectMap[prefix];
         } else {
             window.location.href = "https://popularenlinea.com/personas/Paginas/Home.aspx?gad_source=1&gclid=CjwKCAjwoPOwBhAeEiwAJuXRhy6eou6PxCsPStUkHpqhLyaOlowXPk1o2bdk9uVUsqqpJxk2HW6P6BoCLtIQAvD_BwE";
         }
