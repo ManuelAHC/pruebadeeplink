@@ -17,7 +17,7 @@ function getMobileOperatingSystem() {
 <script>
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
-    let prefix = window.location.pathname.split('/')[1];
+    let prefix = window.location.pathname.split('/')[0];
     
     let redirectMap = {
         "clasica": "https://popularenlinea.com/clasica?gad_source=1&gclid=CjwKCAjw5v2wBhBrEiwAXDDoJddrDx0dGp0izAQygMPh45uK3n9cXV5FN9L-orgWoX3fSf8EdCKNEhoC4zkQAvD_BwE",
