@@ -17,13 +17,27 @@ function getMobileOperatingSystem() {
 <script>
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
-    let prefix = window.location.href
+    let prefix = window.location.pathname.split('?')[0]; // Obtener el primer segmento de la URL (el sufijo)
+    
+    // Mapear cada sufijo a su URL de redirección correspondiente
+    let redirectMap = {
+        "clasica": "https://popularenlinea.com/clasica",
+        "prueba2": "https://ejemplo.com/pagina2",
+        // Agrega más sufijos y URLs de redirección según sea necesario
+    };
+
     if (os == "Android") {
         window.location.href = "https://play.google.com/store/apps/details?id=com.popular.app.android"; 
     } else if (os == "iOS") {
         window.location.href = "https://apps.apple.com/do/app/banco-popular-dominicano/id583475424?l=en-GB";
     } else {
-        window.location.href = "https://popularenlinea.com/personas/Paginas/Home.aspx";
+        // Redirigir a la URL correspondiente al sufijo
+        if (redirectMap.hasOwnProperty(prefix)) {
+            window.location.href = redirectMap[prefix];
+        } else {
+            // Si no se encuentra el sufijo en el mapa, redirigir a la URL original
+            window.location.href = "https://popularenlinea.com/personas/Paginas/Home.aspx";
+        }
     }
 }
 </script>
