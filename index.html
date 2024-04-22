@@ -17,12 +17,27 @@ function getMobileOperatingSystem() {
 <script>
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
-    let prefix = window.location.pathname.split('?')[0]; // Obtener el primer segmento de la URL (el sufijo)
-    
+    let url = window.location.href; //"https://popularenlinea.com/clasica";
+    let pathname = new URL(url).pathname;
+    let parts = pathname.split('/');
+    let prefix = parts[1];
+    //let prefix = window.location.pathname.split('/')[1]; // Obtener el primer segmento de la URL (el sufijo)
+    console.log("data",prefix)
     // Mapear cada sufijo a su URL de redirección correspondiente
     let redirectMap = {
-        "clasica": "https://popularenlinea.com?clasica",
-        "prueba2": "https://ejemplo.com/pagina2",
+        "cuentalibre": "https://popularenlinea.com/cuentalibre",
+        "clasica": "https://popularenlinea.com/clasica",
+        "infinia": "https://popularenlinea.com/infinia",
+        "gold": "https://popularenlinea.com/gold",
+        "jetblue": "https://popularenlinea.com/jetblue",
+        "isi": "https://popularenlinea.com/isi",
+        "plusccn": "https://popularenlinea.com/plusccn",
+        "gnial": "https://popularenlinea.com/gnial",
+        "titanium": "https://popularenlinea.com/titanium",
+        "solicitud_productos": "https://popularenlinea.com/personas/Paginas/Home.aspx",
+        "seguros": "https://popularenlinea.com/Personas/Paginas/seguros/default.aspx",
+        "dashboard": "https://popularenlinea.com/personas/Paginas/Home.aspx",
+        "prueba": "https://popularenlinea.com/personas/Paginas/Home.aspx",
         // Agrega más sufijos y URLs de redirección según sea necesario
     };
 
@@ -35,8 +50,9 @@ function DetectAndServe() {
         if (redirectMap.hasOwnProperty(prefix)) {
             window.location.href = redirectMap[prefix];
         } else {
+
             // Si no se encuentra el sufijo en el mapa, redirigir a la URL original
-            window.location.href = "https://popularenlinea.com/personas/Paginas/Home.aspx";
+            //window.location.href = "https://popularenlinea.com/personas/Paginas/Home.aspx";
         }
     }
 }
