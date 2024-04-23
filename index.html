@@ -22,7 +22,7 @@ function DetectAndServe() {
     let parts = pathname.split('/');
     let prefix = parts[2];
     //let prefix = window.location.pathname.split('/')[1]; // Obtener el primer segmento de la URL (el sufijo)
-    console.log("data",prefix)
+    alert(prefix)
     // Mapear cada sufijo a su URL de redirección correspondiente
     let redirectMap = {
         "cuentalibre": "https://popularenlinea.com/cuentalibre",
