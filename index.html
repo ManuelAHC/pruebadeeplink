@@ -17,6 +17,7 @@ function getMobileOperatingSystem() {
 <script>
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
+    alert("Alert");
     let prefix = window.location.href
     if (os == "Android") {
         window.location.href = "https://play.google.com/store/apps/details?id=com.popular.app.android"; 
