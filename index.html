@@ -18,7 +18,7 @@ function getMobileOperatingSystem() {
 function DetectAndServe() {
     let os = getMobileOperatingSystem();
     let url = window.location.href; //"https://popularenlinea.com/clasica";
-    let pathname = new URL(url).pathname;
+    let pathname = new URL(url);
     let parts = pathname.split('?');
     let prefix = parts[1];
     //let prefix = window.location.pathname.split('/')[1]; // Obtener el primer segmento de la URL (el sufijo)
