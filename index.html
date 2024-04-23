@@ -20,7 +20,7 @@ function DetectAndServe() {
     let url = window.location.href; //"https://popularenlinea.com/clasica";
     let pathname = new URL(url);
     let parts = pathname.split('?');
-    let prefix = parts[1];
+    let prefix = parts[0];
     //let prefix = window.location.pathname.split('/')[1]; // Obtener el primer segmento de la URL (el sufijo)
     alert(prefix)
     // Mapear cada sufijo a su URL de redirección correspondiente
